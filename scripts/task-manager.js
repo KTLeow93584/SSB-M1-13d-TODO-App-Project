@@ -61,12 +61,12 @@ export function modifyTask(arrayIndex) {
 // [User ID, Date Added, Task Name, URL, Deadline, Status, Actions]
 function updateTableRowTaskName(arrayIndex) {
   const tableRow = tableElement.rows[arrayIndex + 1];
-  tableRow.cells[2].textContent = storedTasks[arrayIndex].name;
+  tableRow.cells[3].textContent = storedTasks[arrayIndex].name;
 }
 
 function updateTableRowTaskURL(arrayIndex) {
   const tableRow = tableElement.rows[arrayIndex + 1];
-  tableRow.cells[3].innerHTML = (storedTasks[arrayIndex].url === null) ? `<p>Not provided</p>` : `
+  tableRow.cells[4].innerHTML = (storedTasks[arrayIndex].url === null) ? `<p>Not provided</p>` : `
     <a href="${storedTasks[arrayIndex].url}" class="text-info" target="_blank" role="button">Link</a>
   `;
 }
@@ -76,7 +76,7 @@ function updateTableRowTaskDeadline(arrayIndex) {
 
   const date = storedTasks[arrayIndex].deadline;
   if (date !== null)
-    tableRow.cells[4].textContent = date.getDate().toString().padStart(2, "0") + "/" +
+    tableRow.cells[5].textContent = date.getDate().toString().padStart(2, "0") + "/" +
       (date.getMonth() + 1).toString().padStart(2, "0") + "/" + date.getFullYear();
   else
     tableRow.cells[4].textContent = "N/A";
