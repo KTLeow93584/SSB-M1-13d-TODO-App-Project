@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Todo List App (Assessment) - Leow Kean Tat (Kaz), Main Page</title>
+  <!-- ----------------------- -->
+  <!-- Core Styling Sheet File -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- ----------------------- -->
+  <!-- Bootstrap Content Delivery Network (CDN) Source -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <!-- ----------------------- -->
+</head>
+
+<body onload="onPageLoaded()" onresize="onResizePage()">
+  <div id="page-layout">
+    <!-- ----------------------- -->
+    <!-- Top Panel -->
+    <div id="top-main-panel" class="container-fluid align-items-center justify-content-center px-2">
+      <div class="row py-3">
+        <!-- Horizontal Top Panel, Left Side  (Logo + Title) -->
+        <div class="col-6">
+          <div onclick="onMoveToPage('index.html')" 
+            class="pe-auto d-flex flex-row align-items-center justify-content-start">
+            <img src="./images/logo.png" alt="Logo" width="32px" height="100%" role="button"/>
+            <p class="sixtyfour-normal ms-2 my-0" role="button">Dallyist</p>
+         </div>
+        </div>
+        <!-- Horizontal Top Panel, Right side (Options) -->
+        <div class="col-6 d-none d-sm-flex flex-row align-items-center justify-content-evenly">
+          <a href="#page-main-overview" class="text-decoration-none">How it works</a>
+          <button onclick="onMoveToAuthPage('false')" class="btn btn-danger fw-bold login">Log In</button>
+          <button onclick="logout()" class="hidden logout">Log Out</button>
+          <button onclick="onMoveToAuthPage('true')" class="btn btn-danger fw-bold register">Sign Up</button>
+        </div>
+        <!-- Three Line (For Smaller Width Screen Resolutions) -->
+        <div class="col-6 d-sm-none d-flex flex-row align-items-center justify-content-end rounded">
+          <button id="top-mini-panel-show" onclick="showTopPanelOptions()" class="d-block btn-sm">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <button id="top-mini-panel-hide" onclick="hideTopPanelOptions()" class="d-none btn-sm">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="top-main-panel-buffer"></div>
+    <!-- Floating Panel (For Smaller Width Screen Resolutions) -->
+    <div id="top-mini-panel-options" class="container-fluid d-sm-none d-flex flex-column align-items-start py-1">
+      <a href="#page-main-overview" class="text-decoration-none px-3">How it works</a>
+      <hr>
+      <div class="d-flex flex-row justify-content-evenly w-100">
+        <button onclick="onMoveToAuthPage('false')" class="btn btn-md btn-danger fw-bold login">Log In</button>
+        <button onclick="logout()" class="btn btn-md btn-danger fw-bold logout">Log Out</button>
+        <button onclick="onMoveToAuthPage('true')" class="btn btn-md btn-danger fw-bold register">Sign Up</button>
+      </div>
+    </div>
+    <!-- ----------------------- -->
+    <!-- Main Panel -->
+    <div id="page-main-overlay"></div>
+    <div id="page-main-panel"
+      class="d-flex flex-column align-items-center container-fluid put-to-foreground-effect">
+      <!-- Additional vertical spacing -->
+      <div id="page-main-space-buffer"></div>
+      
+      <!-- Introduction -->
+      <div id="page-main-introduction" class="col-md-8 col-12 text-center py-2 pusheen-bg">
+        <p class="honk-normal fs-1 py-0 m-auto">Feeling like your life is too organized and need some distraction? Say no more!</p>
+
+        <p class="single-day-normal fs-5 py-0 m-auto">Become perpetually distracted and never be productive in a single day. The world's #1 to-do manager app with a procrastinating twist!</p>
+
+        <a href="./subdirectories/auth/register.html" class="btn btn-md btn-danger fw-bold my-3">Start Procrastinating For Free</a>
+      </div>
+
+      <hr>
+
+      <!-- Endorsements -->
+      <div id="page-main-overview" class="container-fluid text-center py-2">
+        <p class="single-day-normal fs-3 py-0 m-auto">Over 100 million+ users trust us with sating their desire to slack off!<p>
+
+        <div class="carousel-endorsements-group">
+          <div class="carousel-endorsements">
+            <img class="endorsement-logo" src="images/endorsements/apple.png" alt="Apple" width="auto" height="120px">
+
+            <img class="endorsement-logo" src="images/endorsements/discord.png" alt="Discord" width="auto" height="120px">
+
+            <img class="endorsement-logo" src="images/endorsements/disney.png" alt="Disney" width="auto" height="120px">
+
+            <img class="endorsement-logo" src="images/endorsements/microsoft.png" alt="Microsoft" width="auto" height="120px">
+
+            <img class="endorsement-logo" src="images/endorsements/slack.png" alt="Slack" width="auto" height="120px">
+
+            <img class="endorsement-logo" src="images/endorsements/teamspeak.png" alt="Teamspeak" width="auto" height="120px">
+          </div>
+
+          <div class="carousel-endorsements">
+            <img class="endorsement-logo" src="images/endorsements/apple.png" alt="Apple" width="auto" height="120px">
+
+            <img class="endorsement-logo" src="images/endorsements/discord.png" alt="Discord" width="auto" height="120px">
+
+            <img class="endorsement-logo" src="images/endorsements/disney.png" alt="Disney" width="auto" height="120px">
+
+            <img class="endorsement-logo" src="images/endorsements/microsoft.png" alt="Microsoft" width="auto" height="120px">
+
+            <img class="endorsement-logo" src="images/endorsements/slack.png" alt="Slack" width="auto" height="120px">
+
+            <img class="endorsement-logo" src="images/endorsements/teamspeak.png" alt="Teamspeak" width="auto" height="120px">
+          </div>
+        </div>
+      </div>
+      
+      <hr>
+
+      <!-- Overview Layout -->
+      <div id="page-main-overview" class="container-fluid col-12 py-2">
+        <div class="text-center">
+          <p class="honk-normal fs-1 py-0 m-auto">Overview</p>
+        </div>
+
+        <!-- How to use instructions -->
+        <div class="text-start">
+          <p class="single-day-normal fs-5 py-0 m-auto">1. Click on the custom task button to add a new task!</p>
+          <p class="single-day-normal fs-5 py-0 m-auto">2. Alternatively, you can also hit the "Distract Me!" to receive a random distracting video ranging from cute animal videos to memes!</p>
+          <p class="single-day-normal fs-5 py-0 m-auto">3. Tasks can be modified via the <i class="fs-5 fa-solid fa-wrench"></i> icon under the "Actions" column!</p>
+          <p class="single-day-normal fs-5 py-0 m-auto">4. Getting tired of certain tasks sitting rent-free in your head? Look for the <i class="fs-5 fa-solid fa-x"></i> icon under the "Actions" column to remove them!</p>
+          <p class="single-day-normal fs-5 py-0 m-auto">5. Profit! Watch your entire day drift away as the content consumes your free time.</p>
+          <p class="single-day-normal fs-5 py-0 m-auto">6. Feel free to register a free account to allow your board's tasks to be saved. Note that the data is currently only <span class="text-info">saved locally</span> and since this is just a mock website, <span class="text-danger">DO NOT use your actual credentials</span> when creating a new account. </p>
+        </div>
+
+        <br
+        <!-- -------------- -->
+        <!-- User Introduction + Task Addition Section -->
+        <div class="d-flex flex-row align-items-center justify-content-center mb-2">
+          <p id="overview-task-table-header" class="fs-5 fw-bold py-0 my-0 mx-2">Insert Name Here</p>
+          <button id="button-refresh-default-tasks" onclick="loadDefaultOverviewTable()" class="btn btn-sm btn-success fw-bold my-0 me-2"><i class="fa-solid fa-rotate-right"></i></button>
+          <button onclick="addRandomDistraction()" class="btn btn-sm btn-info fw-bold my-0 text-light me-2">Distract Me!</button>
+          <button onclick="promptNewTask()" class="btn btn-sm btn-success fw-bold my-0 text-light">Add a new custom task!</button>
+        </div>
+        <!-- -------------- -->
+        <!-- New Task -->
+        <form id="new-task-form" class="hidden" onsubmit="addNewTask()" onreset="removePendingNewTask()">
+          <hr>
+
+          <div class="row">
+            <div id="new-task-name-form" class="col-md-8 col-sm-10 col-12 mb-3">
+              <label for="new-task-name" class="form-label">Task Name</label>
+              <input type="text" class="form-control" id="new-task-name" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div id="new-task-deadline-form" class="col-md-8 col-sm-10 col-12 mb-3">
+              <label for="new-task-deadline" class="form-label">Deadline</label>
+              <div class="d-flex flex-row justify-content-start">
+                <input type="date" class="form-control me-2" id="new-task-deadline">
+                <button type="button" onclick="removeDeadlineAdd()" class="btn btn-sm btn-danger">Remove</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div id="new-task-url-form" class="col-md-8 col-sm-10 col-12 mb-2">
+              <label for="new-task-url" class="form-label">URL Reference</label>
+              <input type="text" class="form-control" id="new-task-url">
+            </div>
+            <small id="new-task-url-warning" class="text-danger mb-3"></small>
+          </div>
+          
+          <div id="new-task-submit" class="d-flex flex-row mb-3">
+            <button type="submit" class="btn btn-primary me-2">Submit</button>
+            <button type="reset" class="btn btn-danger">Cancel</button>
+          </div>
+          <hr>
+        </form>
+        <!-- -------------- -->
+        <!-- Modify Existing Task -->
+        <form id="modify-task-form" class="hidden" onsubmit="onCompleteTaskModification()" onreset="stopTaskModification()">
+          <hr>
+
+          <div class="row">
+            <div id="modify-task-name-form" class="col-md-8 col-sm-10 col-12 mb-3">
+              <label for="modify-task-name" class="form-label">Task Name</label>
+              <input type="text" class="form-control" id="modify-task-name" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div id="modify-task-deadline-form" class="col-md-8 col-sm-10 col-12 mb-3">
+              <label for="modify-task-deadline" class="form-label">Deadline</label>
+              <div class="d-flex flex-row justify-content-start">
+                <input type="date" class="form-control me-2" id="modify-task-deadline">
+                <button type="button" onclick="removeDeadlineModify()" class="btn btn-sm btn-danger">Remove</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div id="modify-task-url-form" class="col-md-8 col-sm-10 col-12 mb-2">
+              <label for="modify-task-url" class="form-label">URL Reference</label>
+              <input type="text" class="form-control" id="modify-task-url">
+            </div>
+            <small id="modify-task-url-warning" class="text-danger mb-3"></small>
+          </div>
+
+          <div id="modify-task-submit" class="d-flex flex-row mb-3">
+            <button type="submit" class="btn btn-primary me-2">Submit</button>
+            <button type="reset" class="btn btn-danger">Cancel</button>
+          </div>
+          <hr>
+        </form>
+        <!-- -------------- -->
+        <!-- Filter Dropdown -->
+        <div class="row mt-2 mb-2">
+          <div class="dropdown col-12 col-md-6 d-flex flex-row justify-content-evenly mb-2">
+            <label for="task-filter-input" class="col-3 fs-6 p-0 my-0">Task Filter:</label>
+            <button id="task-filter-selector" 
+              class="col-6 btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" 
+              aria-expanded="false">
+              Click Me to Select
+            </button>
+            <ul class="dropdown-menu bg-light" aria-labelledby="task-filter-button">
+              <li id="user-id-filter">
+                <button class="dropdown-item" onclick="setFilterQuery('user-id')">User ID (Only when not logged in)</button>
+              </li>
+              <li id="task-id-filter">
+                <button class="dropdown-item" onclick="setFilterQuery('task-id')">Task ID</button>
+              </li>
+
+              <li id="task-name-filter">
+                <button class="dropdown-item" onclick="setFilterQuery('name')">Task Name</button>
+              </li>
+
+              <li id="status-filter">
+                <button class="dropdown-item" onclick="setFilterQuery('status')">Status</button>
+              </li>
+
+              <li id="status-filter">
+                <button class="dropdown-item" onclick="setFilterQuery('none')">None</button>
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-6 d-flex flex-row justify-content-evenly mb-2">
+            <input id="task-filter-input" class="col-5 hidden me-2" type="text">
+            
+            <button id="task-filter-status-selector" 
+              class="col-6 hidden me-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Completed
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="task-filter-status-selector">
+              <li id="user-id-filter">
+                <button class="dropdown-item" onclick="setStatusFilterQuery('Completed')">Completed</button>
+              </li>
+
+              <li id="task-name-filter">
+                <button class="dropdown-item" onclick="setStatusFilterQuery('Not Completed')">Not Completed</button>
+              </li>
+
+              <li id="status-filter">
+                <button class="dropdown-item" onclick="setStatusFilterQuery('Permanent')">Permanent</button>
+              </li>
+            </ul>
+            
+            <button id="task-filter-button" class="col-2 hidden fw-bold text-light px-2" onclick="startFilter()">GO</button>
+          </div>
+        </div>
+        <!-- -------------- -->
+        <!-- Table -->
+        <table id="task-table" class="table table-striped">
+          <thead class="text-center">
+            <tr>
+              <th scope="col" class="w-5 text-center">User ID</th>
+              <th scope="col" class="w-15 text-center">Date Added</th>
+              <th scope="col" class="w-20 text-center">Task Name</th>
+              <th scope="col" class="w-15 text-center">URL</th>
+              <th scope="col" class="w-15 text-center">Deadline</th>
+              <th scope="col" class="w-20 text-center">Status</th>
+              <th scope="col" class="w-10 text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="col" class="w-5 text-center">1</td>
+              <td scope="col" class="w-15 text-center">01/01/1999</td>
+              <td scope="col" class="w-20">Lorem Ipsum delectus aut autem quia provident illum et enim quasi</td>
+              <td scope="col" class="w-15 text-center">N/A</td>
+              <td scope="col" class="w-15 text-center">-</td>
+              <td scope="col" class="w-20 text-center">-</td>
+              <td scope="col" class="w-10 text-center">-</td>
+            </tr>
+          
+            <tr>
+              <td scope="col" class="w-5 text-center">1</td>
+              <td scope="col" class="w-15 text-center">01/01/1999</td>
+              <td scope="col" class="w-20">Lorem Ipsum delectus aut autem quia provident illum et enim quasi</td>
+              <td scope="col" class="w-15 text-center">N/A</td>
+              <td scope="col" class="w-15 text-center">-</td>
+              <td scope="col" class="w-20 text-center">-</td>
+              <td scope="col" class="w-10 text-center">-</td>
+            </tr>
+          
+            <tr>
+              <td scope="col" class="w-5 text-center">1</td>
+              <td scope="col" class="w-15 text-center">01/01/1999</td>
+              <td scope="col" class="w-20">Lorem Ipsum delectus aut autem quia provident illum et enim quasi</td>
+              <td scope="col" class="w-15 text-center">N/A</td>
+              <td scope="col" class="w-15 text-center">-</td>
+              <td scope="col" class="w-20 text-center">-</td>
+              <td scope="col" class="w-10 text-center">-</td>
+            </tr>
+          
+            <tr>
+              <td scope="col" class="w-5 text-center">1</td>
+              <td scope="col" class="w-15 text-center">01/01/1999</td>
+              <td scope="col" class="w-20">Lorem Ipsum delectus aut autem quia provident illum et enim quasi</td>
+              <td scope="col" class="w-15 text-center">N/A</td>
+              <td scope="col" class="w-15 text-center">-</td>
+              <td scope="col" class="w-20 text-center">-</td>
+              <td scope="col" class="w-10 text-center">-</td>
+            </tr>
+          
+            <tr>
+              <td scope="col" class="w-5 text-center">1</td>
+              <td scope="col" class="w-15 text-center">01/01/1999</td>
+              <td scope="col" class="w-20">Lorem Ipsum delectus aut autem quia provident illum et enim quasi</td>
+              <td scope="col" class="w-15 text-center">N/A</td>
+              <td scope="col" class="w-15 text-center">-</td>
+              <td scope="col" class="w-20 text-center">-</td>
+              <td scope="col" class="w-10 text-center">-</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div id="empty-table-notifier" class="hidden flex-row align-items-center justify-content-center">
+          <p>"It's like a galaxy far, far away, but all I found was a bunch of ewoks – I was hoping for at least a Wookiee welcome party!"</p>
+        </div>
+        <!-- -------------- -->
+      </div>
+    </div>
+    <!-- ----------------------- -->
+    <!-- Contact -->
+    <section id="contact-and-link-group" class="px-0 mx-0">
+      <footer class="row py-5 border-top">
+
+        <div id="link-group" class="col-5 d-flex flex-column align-items-start justify-content-center">
+          <div onclick="onMoveToPage('index.html')" class="pe-auto d-flex flex-row align-items-center justify-content-start px-4">
+            <img src="./images/logo.png" alt="Logo" width="32px" height="100%" role="button"/>
+            <p class="sixtyfour-normal ms-2 my-0" role="button">Dallyist</p>
+          </div>
+          <div class="px-4">
+            <p>Come join us and embrace a world full of laziness and eternal bliss.</p>
+          </div>
+        </div>
+
+        <div id="link-group" class="col-4 d-flex flex-column align-items-center">
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2">
+              <h5>Features</h5>
+            </li>
+            <li class="nav-item mb-2"><a href="#page-main-overview" class="nav-link p-0">How It Works</a></li>
+          </ul>
+        </div>
+
+        <div id="contact-group" class="col-2 d-flex flex-column align-items-center justify-content-evenly">
+          <!-- Mock Socials -->
+          <a href="#" class="fs-3"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="fs-3"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" class="fs-3"><i class="fa-brands fa-google-play"></i></i></a>
+          <a href="#" class="fs-3"><i class="fa-brands fa-app-store-ios"></i></i></i></a>
+        </div>
+
+        <div class="col-1"></div>
+      </footer>
+    </section>
+    <!-- Copyright -->
+    <section id="copyright-group" class="px-3 mx-0">
+      <footer class="row py-5 border-top">
+        <div class="col-12 d-flex flex-column">
+          <p class="my-0">&copy; 2024 Leow Kean Tat (Kaz). Source code was developed from Replit, and it is only intended to be used as part of the submission for Sigma School Bootcamp's Module 1 Assessment. Inspired from <a href="https://todoist.com/" target="_blank">TODOist</a>.</p>
+          
+          <br/>
+          
+          <p class="my-0">This project is meant for entertainment and education purposes only, all resemblances with any real life person or entity are purely coincidental. Jokes and giggles aside, do spend your time wisely and plan your day accordingly with as many viable backups as you can to avoid future disappointments.</p>
+        </div>
+      </footer>
+    </section>
+  </div>
+  <!-- ----------------------- -->
+  <!-- Bootstrap Content Delivery Network (CDN) Source -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <!-- ----------------------- -->
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/fdebea0a02.js" crossorigin="anonymous"></script>
+  <!-- ----------------------- -->
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Sixty Four -->
+  <link href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap" rel="stylesheet">
+
+  <!-- Honk -->
+  <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+
+  <!-- Single Day -->
+  <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+  <!-- ----------------------- -->
+  <!-- Core Script File -->
+  <script type="module" src="scripts/index.js"></script>
+  <script type="module" src="scripts/task-manager.js"></script>
+  <script type="module" src="scripts/overview.js"></script>
+  <!-- ----------------------- -->
+</body>
+
+</html>
+

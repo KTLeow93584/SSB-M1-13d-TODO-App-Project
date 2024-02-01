@@ -1,0 +1,176 @@
+:root {
+  /* Background Color (Main - Page Layout) */
+  --core-bg-color: #faf0e6;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+hr {
+  border-color: #F05F44 !important;
+  height: 3px !important;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+#page-layout {
+  background-color: var(--core-bg-color);
+}
+
+.put-to-foreground-effect {
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -ms-filter: blur(0px);
+}
+
+.put-to-background-effect {
+  filter: blur(5px);
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(5px);
+  -ms-filter: blur(5px);
+}
+
+#page-main-space-buffer {
+  position: relative;
+  width: 100%;
+  padding-top: 5%;
+}
+/* --------------------------- */
+/* Main Page (Top Panel) */
+#top-main-panel {
+  width: 100%;
+  background-color: white;
+  z-index: 5;
+  overflow: hidden;
+}
+
+#top-main-panel-buffer {
+  position: relative;
+  width: 100%;
+  background-color: white;
+}
+
+#top-mini-panel-options {
+  position: fixed;
+  width: 100%;
+  z-index: 4;
+  top: -102px;
+  background-color: white;
+  transition: 0.5s;
+}
+/* --------------------------- */
+/* Main Page (Main Content) */
+#page-main-panel {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+#page-main-overlay {
+  position: fixed;
+  display: none;
+  opacity: 0;
+  
+  width: 100%;
+  height: 100%;
+  
+  z-index: 2;
+  background-color: grey;
+  
+  transition: opacity 0.5s;
+  overflow: hidden;
+}
+
+#page-main-introduction {
+  height: 900px;
+}
+
+.pusheen-bg {
+  background-image: url("images/pusheen-lazy-bg-cropped.png");
+  
+  background-color: var(--core-bg-color);
+  background-position: bottom center;
+  background-size: 512px auto;
+
+  background-repeat: no-repeat;
+}
+
+/* Credits to: Coding with Robby, Video Link: https://www.youtube.com/watch?v=nAjR0Oj0J8E*/
+.carousel-endorsements-group {
+  white-space: nowrap;
+}
+
+/* Pause on Mouse Hover
+.carousel-endorsements-group:hover .carousel-endorsements {
+  animation-play-state: paused;
+}
+*/
+
+.carousel-endorsements {
+  display: inline-block;
+  animation: 35s slide infinite linear;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.endorsement-logo {
+  overflow: hidden;
+  margin: 0px 15px;
+}
+
+#contact-and-link-group {
+  overflow: hidden;
+}
+/* --------------------------- */
+/* Authentication Page */
+#auth-panel {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+/* --------------------------- */
+/* Font Types */
+/* Sixty Four - https://fonts.google.com/specimen/Sixtyfour */
+.sixtyfour-normal  {
+  font-family: "Sixtyfour", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
+}
+
+/* Honk - https://fonts.google.com/specimen/Honk */
+.honk-normal {
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+}
+
+/* Single Day - https://fonts.google.com/specimen/Single+Day */
+.single-day-normal {
+  font-family: "Single Day", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+/* ---------------------------
