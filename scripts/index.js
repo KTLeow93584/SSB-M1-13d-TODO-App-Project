@@ -17,6 +17,8 @@ const registerButtonElements = [...document.getElementsByClassName("register")];
 
 const refreshButtonElement = document.getElementById("button-refresh-default-tasks");
 const userIDFilterElement = document.getElementById("user-id-filter");
+
+const customTaskAddElement = document.getElementById("add-custom-task-button");
 // ===================================================
 function onPageLoaded() {
   // Debug - Reset Keys.
@@ -37,12 +39,15 @@ function onPageLoaded() {
 
     logoutButtonElements.forEach((button) => button.classList.add("btn", "btn-danger", "fw-bold"));
     logoutButtonElements.forEach((button) => button.classList.remove("hidden"));
-    
+
     registerButtonElements.forEach((button) => button.classList.remove("btn", "btn-danger", "fw-bold"));
     registerButtonElements.forEach((button) => button.classList.add("hidden"));
 
     refreshButtonElement.classList.remove("btn", "btn-sm", "btn-success");
     refreshButtonElement.classList.add("hidden");
+
+    customTaskAddElement.classList.add("btn", "btn-sm", "btn-success");
+    customTaskAddElement.classList.remove("hidden");
 
     userIDFilterElement.classList.add("hidden");
     loadUserTable(user);
@@ -53,12 +58,15 @@ function onPageLoaded() {
 
     logoutButtonElements.forEach((button) => button.classList.remove("btn", "btn-danger", "fw-bold"));
     logoutButtonElements.forEach((button) => button.classList.add("hidden"));
-    
+
     registerButtonElements.forEach((button) => button.classList.add("btn", "btn-danger", "fw-bold"));
     registerButtonElements.forEach((button) => button.classList.remove("hidden"));
 
     refreshButtonElement.classList.add("btn", "btn-sm", "btn-success");
     refreshButtonElement.classList.remove("hidden");
+
+    customTaskAddElement.classList.remove("btn", "btn-sm", "btn-success");
+    customTaskAddElement.classList.add("hidden");
 
     userIDFilterElement.classList.remove("hidden");
     loadDefaultOverviewTable();
